@@ -16,11 +16,23 @@ class UserFormsCheckboxSetField extends CheckboxSetField
     {
         $options = parent::getOptions();
 
+
         foreach ($options as $option) {
             $option->Name = "{$this->name}[]";
         }
 
         return $options;
+    }
+
+    /**
+     * @inheritdoc
+     *
+     * @return array
+     */
+    public function getSourceAsArray()
+    {
+        $array = parent::getSourceAsArray();
+        return array_values($array);
     }
 
     /**
@@ -43,6 +55,7 @@ class UserFormsCheckboxSetField extends CheckboxSetField
         // set the value as an array for parent validation
 
         $this->setValue($value);
+
 
         $validated = parent::validate($validator);
 
