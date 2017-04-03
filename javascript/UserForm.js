@@ -711,7 +711,7 @@ jQuery(function ($) {
 		formActions = new FormActions($('#step-navigation'));
 
 		// Enable jQuery UI datepickers
-		$(document).on('click', 'input.text[data-showcalendar]', function() {
+		$(document).on('click', 'input.text[data-showcalendar], input.date-alt', function() {
 			var $element = $(this);
 
 			$element.ssDatepicker();
